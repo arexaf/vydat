@@ -11,7 +11,7 @@ public class PaystackService {
     private final RestTemplate restTemplate;
 
     // ✅ Make sure this is your TEST or LIVE SECRET KEY from Paystack dashboard
-    private static final String PAYSTACK_SECRET = "sk_live_680b1b730d68756996b1a0b01851711a4b8ebae7";
+    private static final String PAYSTACK_SECRET = "";
 
     public PaystackService(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
