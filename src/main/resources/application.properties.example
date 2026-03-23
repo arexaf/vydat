@@ -31,7 +31,7 @@ spring.datasource.hikari.leak-detection-threshold=60000
 
 paystack.secret.key=your_paystack_secret_key_here
 
-server.port=8081
+server.port=8080
 
 # VTU.ng Credentials
 vtu.username=your_vtu_email_here
