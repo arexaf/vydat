@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.util.Map;
 import java.util.UUID;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.vydat.vydat.model.Transaction;
@@ -154,5 +156,15 @@ public class VtuService {
                 tx.getMerchantRef()
         );
         return handleResponse(tx, wallet, resp, amount);
+    }
+
+    //-------- Transaction History ----------
+    public Page<Transaction> getUserTransactions(Long userId, Pageable pageable) {
+        return transactionRepository.findByUserId(userId, pageable);
+    }
+
+    //-------- Transaction Count ----------
+    public long getUserTransactionCount(Long userId) {
+        return transactionRepository.countByUserId(userId);
     }
 }

@@ -57,13 +57,7 @@ public class WalletService {
         Wallet wallet = walletRepository.findByUserId(userId)
                 .orElseThrow(() -> new RuntimeException("Wallet not found"));
 
-        // Credit user wallet
         wallet.setBalance(wallet.getBalance().add(BigDecimal.valueOf(amountNaira)));
-        Wallet updatedWallet = walletRepository.save(wallet);
-
-        // Fund VTU NG wallet
-        vtuNgService.fundVtuWallet(amountNaira);
-
-        return updatedWallet;
+        return walletRepository.save(wallet);
     }
 }
