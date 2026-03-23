@@ -21,9 +21,9 @@ public class VtuAuthService {
     private String cachedToken; // store JWT token temporarily
 
     public VtuAuthService(RestTemplate restTemplate,
-                          @Value("${vtu.api.username}") String username,
-                          @Value("${vtu.api.password}") String password,
-                          @Value("${vtu.api.base-url}") String baseUrl) {
+                          @Value("${vtu.api.username:${vtu.username}}") String username,
+                          @Value("${vtu.api.password:${vtu.password}}") String password,
+                          @Value("${vtu.api.base-url:${vtu.base.url}}") String baseUrl) {
         this.restTemplate = restTemplate;
         this.username = username;
         this.password = password;
