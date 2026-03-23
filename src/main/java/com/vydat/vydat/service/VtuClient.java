@@ -11,13 +11,13 @@ import org.springframework.beans.factory.annotation.Value;
 @Service
 public class VtuClient {
 
-    @Value("${vtu.username}")
+    @Value("${vtu.api.username:${vtu.username}}")
     private String username;
 
-    @Value("${vtu.password}")
+    @Value("${vtu.api.password:${vtu.password}}")
     private String password;
 
-    @Value("${vtu.base.url}")
+    @Value("${vtu.api.base-url:${vtu.base.url}}")
     private String baseUrl;
 
     private final RestTemplate restTemplate = new RestTemplate();
